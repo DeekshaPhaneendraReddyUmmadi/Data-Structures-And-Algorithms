@@ -57,7 +57,7 @@ public class LinkedList<T> {
     }
 
     // this function add the new node at any location of the list
-    public void addAny(T data, int location) {
+    public void addAtAny(T data, int location) {
         if (location > size) {
             add(data);
             return;

@@ -12,9 +12,6 @@ public class Main {
         ll1.add(9);
         ll1.add(2);
 
-        // System.out.println(ll1.nthToLast(2).data);
-        // ll1.partition(5);
-
         ll1.printList();
         
     }

@@ -29,8 +29,8 @@ To get started with this document, you can clone the repository and open the fil
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/yourusername/dsa-documentation.git
-    cd dsa-documentation
+    git clone https://github.com/DeekshaPhaneendraReddyUmmadi/Data-Structures-And-Algorithms
+    cd Data-Structures-And-Algorithms
 
 ## Data Structures
       
@@ -39,6 +39,7 @@ To get started with this document, you can clone the repository and open the fil
 
   - **Characteristics**: Fixed size, homogeneous elements, contiguous memory allocation.
   - **Operations**: Access, Insertion, Deletion, Traversal.
+  - https://github.com/DeekshaPhaneendraReddyUmmadi/Data-Structures-And-Algorithms/tree/main/Data%20Structures/Linear/Static/Array
 
   ### Linked Lists
   A linked list is a linear data structure where each element (node) contains a value and a reference (or link) to the next node in the sequence. This allows for efficient insertion and deletion of elements.
