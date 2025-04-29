@@ -1,19 +1,19 @@
-package double_linked_list;
+package Data_Structures.Linear.Dynamic.LinkedList.double_linked_list;
 
 public class DoubleLinkedList<T> {
-    Node<T> head;
-    private Node<T> tail;
+    DLNode<T> head;
+    private DLNode<T> tail;
     private int size = 0;
 
     public void insert(T data) {
-        Node<T> node = new Node<>(data);
+        DLNode<T> DLNode = new DLNode<>(data);
         if (head == null) {
-            head = node;
-            tail = node;
+            head = DLNode;
+            tail = DLNode;
         } else {
-            node.prev = tail;
-            tail.next = node;
-            tail = node;
+            DLNode.prev = tail;
+            tail.next = DLNode;
+            tail = DLNode;
         }
         size++;
     }
@@ -22,14 +22,14 @@ public class DoubleLinkedList<T> {
         if(head == null){
             insert(data);
         }
-        Node<T> node = new Node<>(data);
+        DLNode<T> DLNode = new DLNode<>(data);
         if (head == null) {
-            head = node;
-            tail = node;
+            head = DLNode;
+            tail = DLNode;
         } else {
-            head.prev = node;
-            node.next = head;
-            head = node;
+            head.prev = DLNode;
+            DLNode.next = head;
+            head = DLNode;
         }
         size++;
     }
@@ -43,16 +43,16 @@ public class DoubleLinkedList<T> {
             return;
         }
 
-        Node<T> node = new Node<>(data);
-        Node<T> temp = head;
+        DLNode<T> DLNode = new DLNode<>(data);
+        DLNode<T> temp = head;
         for (int i = 0; i < index - 1; i++) {
             temp = temp.next;
         }
 
-        node.prev = temp;
-        node.next = temp.next;
-        temp.next.prev = node;
-        temp.next = node;
+        DLNode.prev = temp;
+        DLNode.next = temp.next;
+        temp.next.prev = DLNode;
+        temp.next = DLNode;
         size++;
     }
 
@@ -93,7 +93,7 @@ public class DoubleLinkedList<T> {
             return;
         }
         
-        Node<T> temp = head;
+        DLNode<T> temp = head;
         for(int i = 0; i < index;i++){
             temp = temp.next;
         }
@@ -111,7 +111,7 @@ public class DoubleLinkedList<T> {
             System.out.println("LIst is empty.");
             return;
         }
-        Node<T> temp = head;
+        DLNode<T> temp = head;
         while (temp != null) {
             count++;
             if (temp.data == data) {
@@ -127,7 +127,7 @@ public class DoubleLinkedList<T> {
             System.out.println("List is empty");
             return;
         }
-        Node<T> temp = tail;
+        DLNode<T> temp = tail;
         while (temp != null) {
             System.out.print(temp.data);
             temp = temp.prev;
@@ -142,7 +142,7 @@ public class DoubleLinkedList<T> {
             System.out.println("List is empty");
             return;
         }
-        Node<T> temp = head;
+        DLNode<T> temp = head;
         while (temp != null) {
             System.out.print(temp.data);
             temp = temp.next;

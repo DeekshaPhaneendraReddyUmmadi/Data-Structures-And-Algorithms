@@ -1,18 +1,18 @@
-package circular_single_linked_list;
+package Data_Structures.Linear.Dynamic.LinkedList.circular_linked_list;
 
-public class LinkedList<T> {
-    Node<T> head;
-    Node<T> tail;
+public class CircularLinkedList<T> {
+    CLNode<T> head;
+    CLNode<T> tail;
     int size = 0;
     boolean isEmpty;
 
-    public LinkedList() {
+    public CircularLinkedList() {
         this.head = null;
         this.tail = null;
     }
 
     private void insert(T data) {
-        Node<T> node = new Node<T>(data); // Create a new node with the provided data
+        CLNode<T> node = new CLNode<T>(data); // Create a new node with the provided data
         head = node;
         tail = node;
         size++;
@@ -26,7 +26,7 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<>(data);
+        CLNode<T> node = new CLNode<>(data);
 
         // If the list is not empty, link the new node to the end of the list
         tail.next = node; // Link the current tail to the new node
@@ -43,7 +43,7 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<T>(data);
+        CLNode<T> node = new CLNode<T>(data);
 
         // If the list is not empty, link the new node to the starting of the list
         node.next = head;
@@ -68,8 +68,8 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<T>(data);
-        Node<T> temp = head;
+        CLNode<T> node = new CLNode<T>(data);
+        CLNode<T> temp = head;
         for (int i = 0; i < location-1; i++) {
             temp = temp.next;
         }
@@ -79,7 +79,7 @@ public class LinkedList<T> {
     }
 
     public boolean search(T data) {
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         while (temp != null) {
             if (temp.data.equals(data)) {
                 return true;
@@ -90,7 +90,7 @@ public class LinkedList<T> {
     }
 
     public void delete(T data) {
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         if (temp.data == data) {
             deleteAtFirst();
             return;
@@ -119,19 +119,19 @@ public class LinkedList<T> {
     }
 
 
-    public Node<T> pop() {
+    public CLNode<T> pop() {
         if (head == null) {
             System.out.println("The SLL does not exist");
             return null;
         }
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         int count = size;
         while (temp != null && count != 2) {
             temp = temp.next;
             count--;
         }
         temp.next = null;
-        Node<T> res = tail;
+        CLNode<T> res = tail;
         tail = temp;
         tail.next = null;
         size--;
@@ -139,7 +139,7 @@ public class LinkedList<T> {
     }
 
     public void deleteAtLast() {
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         int count = size;
         while (temp != null && count != 2) {
             temp = temp.next;
@@ -167,7 +167,7 @@ public class LinkedList<T> {
             return;
         }
 
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         int i = 1;
         while (i < location - 1) {
             temp = temp.next;
@@ -185,7 +185,7 @@ public class LinkedList<T> {
         }
 
         int i = size - 1;
-        Node<T> temp = head;
+        CLNode<T> temp = head;
         while (temp != null) {
             System.out.print(temp.data);
             temp = temp.next;

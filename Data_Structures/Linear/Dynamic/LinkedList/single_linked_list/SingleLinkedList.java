@@ -1,20 +1,20 @@
-package single_linked_list;
+package Data_Structures.Linear.Dynamic.LinkedList.single_linked_list;
 
 import java.util.HashSet;
 
-public class LinkedList<T> {
-    Node<T> head;
-    Node<T> tail;
+public class SingleLinkedList<T> {
+    SLNode<T> head;
+    SLNode<T> tail;
     int size = 0;
     boolean isEmity;
 
-    public LinkedList() {
+    public SingleLinkedList() {
         this.head = null;
         this.tail = null;
     }
 
     private void insert(T data) {
-        Node<T> node = new Node<T>(data); // Create a new node with the provided data
+        SLNode<T> node = new SLNode<T>(data); // Create a new node with the provided data
         head = node;
         tail = node;
         size++;
@@ -29,7 +29,7 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<>(data);
+        SLNode<T> node = new SLNode<>(data);
 
         // If the list is not empty, link the new node to the end of the list
         tail.next = node; // Link the current tail to the new node
@@ -47,7 +47,7 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<T>(data);
+        SLNode<T> node = new SLNode<T>(data);
 
         // If the list is not empty, link the new node to the starting of the list
         node.next = head;
@@ -75,8 +75,8 @@ public class LinkedList<T> {
         }
 
         // Create a new node with the provided data
-        Node<T> node = new Node<T>(data);
-        Node<T> temp = head;
+        SLNode<T> node = new SLNode<T>(data);
+        SLNode<T> temp = head;
         for (int i = 0; i < location - 1; i++) {
             temp = temp.next;
         }
@@ -87,7 +87,7 @@ public class LinkedList<T> {
 
     // this function searches the list if the value is present returns true else false
     public boolean search(T data) {
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         while (temp != null) {
             if (temp.data.equals(data)) {
                 return true;
@@ -99,7 +99,7 @@ public class LinkedList<T> {
 
     // this function delete the node based on value provided
     public void delete(T data) {
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         if (temp.data == data) {
             deleteAtFirst();
             return;
@@ -129,19 +129,19 @@ public class LinkedList<T> {
     }
 
     // this function delete the last node
-    public Node<T> pop() {
+    public SLNode<T> pop() {
         if (head == null) {
             System.out.println("The SLL does not exist");
             return null;
         }
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         int count = size;
         while (temp != null && count != 2) {
             temp = temp.next;
             count--;
         }
         temp.next = null;
-        Node<T> res = tail;
+        SLNode<T> res = tail;
         tail = temp;
         tail.next = null;
         size--;
@@ -150,7 +150,7 @@ public class LinkedList<T> {
     
     // this function delete the last node
     public void deleteAtLast() {
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         int count = size;
         while (temp != null && count != 2) {
             temp = temp.next;
@@ -179,7 +179,7 @@ public class LinkedList<T> {
             return;
         }
 
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         int i = 1;
         while (i < location - 1) {
             temp = temp.next;
@@ -192,8 +192,8 @@ public class LinkedList<T> {
     // Remove Duplicates from list
     public void removeDup() {
         HashSet<Integer> set = new HashSet<>();
-        Node<T> current = head;
-        Node<T> tail = null;
+        SLNode<T> current = head;
+        SLNode<T> tail = null;
         while (current != null) {
             if (set.contains(current.data)) {
                 tail.next = current.next;
@@ -208,10 +208,10 @@ public class LinkedList<T> {
     }
 
 
-    Node<T> nthToLast(int n) {
+    SLNode<T> nthToLast(int n) {
         // Initialize two pointers, p1 and p2, to the head of the linked list
-        Node<T> p1 = head;
-        Node<T> p2 = head;
+        SLNode<T> p1 = head;
+        SLNode<T> p2 = head;
     
         // Move p2 n nodes ahead in the list
         for (int i = 0; i < n; i++) {
@@ -232,10 +232,10 @@ public class LinkedList<T> {
     }
     
     void partition(int n){
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         while(temp != null){
             if ((int)(temp.next.data) < n) {
-                Node<T> curNode = temp.next;
+                SLNode<T> curNode = temp.next;
                 temp.next = temp.next.next;
                 curNode.next = head;
                 head = curNode;
@@ -276,7 +276,7 @@ public class LinkedList<T> {
         }
 
         int i = size - 1;
-        Node<T> temp = head;
+        SLNode<T> temp = head;
         while (temp != null) {
             System.out.print(temp.data);
             temp = temp.next;
@@ -300,9 +300,9 @@ public class LinkedList<T> {
     }
 
     // It sums two linked list
-    void sum(LinkedList<T> ll1 , LinkedList<T> ll2){
+    void sum(SingleLinkedList<T> ll1 , SingleLinkedList<T> ll2){
         int sum1 = 0;
-        Node<T> temp1 = ll1.head;
+        SLNode<T> temp1 = ll1.head;
         int i = 0;
         while(temp1 != null){
             int zero = 1;
@@ -314,7 +314,7 @@ public class LinkedList<T> {
             i++;
         }
         int sum2 = 0;
-        Node<T> temp2 = ll2.head;
+        SLNode<T> temp2 = ll2.head;
         int j = 0;
         while(temp2 != null){
             int zero = 1;
