@@ -22,7 +22,7 @@ A queue can be implemented using:
 - **Linked List**: A dynamic structure where each element points to the next, allowing for flexible size.
 
 ## Simple Queue Representation:
->![Stack](/images/queue/simple%20queue.svg)
+>![Stack](/images/queue/Queue.svg)
 
 ## Variants of Queues
 - **Simple Queue**: A basic queue with standard FIFO operations.
